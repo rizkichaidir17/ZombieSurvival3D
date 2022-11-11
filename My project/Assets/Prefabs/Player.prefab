@@ -44,14 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127af5046e7ab3d45a1601050ec3445a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  skillCooldown: 1
+  skillCooldown: 3
   skillActiveTime: 0
   skillName: BlobOrb
   skillDescription: 
+  skillImage: {fileID: 8792144389824688117, guid: 98b065cdbda31444ca8e02ed2d61c400, type: 3}
   projectile: {fileID: 52476220827435605, guid: 4af70215ce953ff4a9195749cfff6423, type: 3}
   spawnedProjectiles: []
-  maxOrb: 0
+  maxOrb: 1
 --- !u!1 &457863516
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,11 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b307eddbf4dcb54db436d1e83d5c888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
   skillCooldown: 1
   skillActiveTime: 10
   skillName: Blob Missle
   skillDescription: 
+  skillImage: {fileID: 8792144389824688117, guid: 44f4529f740e6334080feaf0bbf2ffeb, type: 3}
   homeMissile: {fileID: 7547140241000463829, guid: f3ba353714d59564c8eefe71e1ac658c, type: 3}
   targetEnemy: {fileID: 0}
 --- !u!1 &1861975649
@@ -148,11 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4c94c5c63f17e4eb6bb91eb026cc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
   skillCooldown: 1
   skillActiveTime: 0
   skillName: Bloob Meteor
   skillDescription: 
+  skillImage: {fileID: 8792144389824688117, guid: 3eb2ade35cad773468652335b3271454, type: 3}
   meteorMissile: {fileID: 7547140241000463829, guid: 227b2e2245226af41905f04beb49c6f9, type: 3}
   scaleUp: 1
 --- !u!135 &6325904431154115343

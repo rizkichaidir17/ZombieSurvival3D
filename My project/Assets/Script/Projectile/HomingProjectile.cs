@@ -7,10 +7,7 @@ public class HomingProjectile : BaseProjectile
     public BaseCharacter target;
     [SerializeField] float jarakTarget;
 
-    private void Awake()
-    {
-        target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Zombie>();
-    }
+   
 
     public override void Shoot()
     {

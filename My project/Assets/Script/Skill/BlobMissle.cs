@@ -55,9 +55,23 @@ public class BlobMissle : ActiveSkill
     }
     public void FindTarget()
     {
-        if (targetEnemy != null) return;
-        var cekEmey = GameObject.FindGameObjectWithTag("Enemy");
-        if(cekEmey != null)targetEnemy = cekEmey.GetComponent<Zombie>();
+        float disctanceToCloseEnemy = Mathf.Infinity;
+        Zombie enemy = null;
+        Zombie[] allEnemy = GameObject.FindObjectsOfType<Zombie>();
+
+        foreach (Zombie currentEnemy in allEnemy)
+        {
+            float distanceToEnemy = (currentEnemy.transform.position - this.transform.position).sqrMagnitude;
+            if(distanceToEnemy < disctanceToCloseEnemy)
+            {
+                disctanceToCloseEnemy = distanceToEnemy;
+                enemy = currentEnemy;
+            }
+        }
+
+        //if (targetEnemy != null) return;
+        //var cekEmey = GameObject.FindGameObjectWithTag("Enemy");
+        //if(cekEmey != null)targetEnemy = cekEmey.GetComponent<Zombie>();
     }
 
     public override void ActivateSkill()

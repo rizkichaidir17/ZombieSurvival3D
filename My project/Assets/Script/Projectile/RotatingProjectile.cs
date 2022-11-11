@@ -7,6 +7,7 @@ public class RotatingProjectile : BaseProjectile
     public Transform rotateAround;
     public float targetDistance;
     Vector3 offset;
+    Vector3 lookAt;
     public float angle;
     float sgrRange;
     public Vector3 axis = new Vector3(0, 1, 0);
@@ -18,9 +19,12 @@ public class RotatingProjectile : BaseProjectile
         if(offset != null)
         {
             offset = new Vector3(Mathf.Sin(angle) * targetDistance, 1, Mathf.Cos(angle) * targetDistance);
+            
         }
         transform.position = rotateAround.position + offset;
+       
     }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Enemy"))

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class BaseSkill : MonoBehaviour
 {
@@ -7,7 +8,10 @@ public abstract class BaseSkill : MonoBehaviour
     [SerializeField] protected float skillActiveTime;
     public string skillName;
     public string skillDescription;
-   
+    public Image skillImage;
+//    public Texture2D imageTexture;
+
+
 
     public abstract void ActivateSkill();
     public abstract void OnLevelUp();
