@@ -6,7 +6,7 @@ public class BlobMissle : ActiveSkill
 {
     float coolDownTime;
     float activeTime;
-    [SerializeField] GameObject homeMissile;
+    [SerializeField] HomingProjectile homeMissile;
     public Zombie targetEnemy;
    
     enum AbilityState
@@ -55,35 +55,40 @@ public class BlobMissle : ActiveSkill
     }
     public void FindTarget()
     {
+        //if (targetEnemy != null) return;
         float disctanceToCloseEnemy = Mathf.Infinity;
         Zombie enemy = null;
         Zombie[] allEnemy = GameObject.FindObjectsOfType<Zombie>();
 
         foreach (Zombie currentEnemy in allEnemy)
         {
-            float distanceToEnemy = (currentEnemy.transform.position - this.transform.position).sqrMagnitude;
-            if(distanceToEnemy < disctanceToCloseEnemy)
+            if (currentEnemy.isDead) continue;
+            Vector3 distanceToEnemy = (currentEnemy.transform.position - transform.position);
+            if (distanceToEnemy.sqrMagnitude < disctanceToCloseEnemy)
             {
-                disctanceToCloseEnemy = distanceToEnemy;
+                disctanceToCloseEnemy = distanceToEnemy.sqrMagnitude;
                 enemy = currentEnemy;
             }
         }
-
+        targetEnemy = enemy;
+        
         //if (targetEnemy != null) return;
         //var cekEmey = GameObject.FindGameObjectWithTag("Enemy");
-        //if(cekEmey != null)targetEnemy = cekEmey.GetComponent<Zombie>();
+        //if (cekEmey != null) targetEnemy = cekEmey.GetComponent<Zombie>();
     }
 
     public override void ActivateSkill()
     {
-        if (targetEnemy != null)
-            Instantiate(homeMissile, transform.position, Quaternion.identity);
+        if (targetEnemy == null) return;
+        var prj = Instantiate(homeMissile);
+        prj.transform.position = transform.position + Vector3.forward;
+        prj.target = targetEnemy;
     }
 
     public override void OnLevelUp()
     {
         base.OnLevelUp();
-        skillActiveTime -= 1;
-
+        var prj = homeMissile.GetComponent<HomingProjectile>();
+        prj.projectileDamage += 10;
     }
 }

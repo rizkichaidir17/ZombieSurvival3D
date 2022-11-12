@@ -7,8 +7,11 @@ public class HomingProjectile : BaseProjectile
     public BaseCharacter target;
     [SerializeField] float jarakTarget;
 
-   
 
+    public void Start()
+    {
+        projectileDamage = 10;
+    }
     public override void Shoot()
     {
         if(target == null)

@@ -56,8 +56,7 @@ public class SkillManager : MonoBehaviour
     {
         _xpText.text = ((float)currentExp + "/" + nextExpToLevelUp).ToString();
         xpBar.fillAmount = 0;
-        //HideAvailableSkills();
-        //ShowAvaiilableSkills();
+        ShowAvaiilableSkills();
     }
     private void Update()
     {

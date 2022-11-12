@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class BaseProjectile : MonoBehaviour
 {
     [SerializeField] protected float projectileSpeed;
-    [SerializeField] protected int projectileDamage;
+    public int projectileDamage;
 
     public virtual void Shoot()
     {

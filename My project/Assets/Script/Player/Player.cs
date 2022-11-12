@@ -41,6 +41,8 @@ public class Player : BaseCharacter
     {
         base.Dead();
         this.enabled = false;
+        Time.timeScale = 0;
+        UiManager.ins.gameOverPanel.SetActive(true);
     }
     #endregion
 }

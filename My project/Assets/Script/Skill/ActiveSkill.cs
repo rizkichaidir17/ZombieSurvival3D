@@ -16,7 +16,7 @@ public class ActiveSkill : BaseSkill
 
     public override void OnLevelUp()
     {
-        print(this);
+        //print(this);
         level++;
     }
 
